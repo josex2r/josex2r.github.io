@@ -27,4 +27,16 @@
     padding: 0 16px;
   }
 
+  .menu {
+    margin-left: 0px;
+    width: 100%;
+    padding-left: 58px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .menu {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+  }
 }

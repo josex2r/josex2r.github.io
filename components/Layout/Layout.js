@@ -11,6 +11,7 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import Header from './Header';
+import Menu from './Menu';
 import Footer from '../Footer';
 import s from './Layout.css';
 
@@ -20,6 +21,14 @@ class Layout extends React.Component {
     className: PropTypes.string,
   };
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      menuVisible: false
+    };
+  }
+
   componentDidMount() {
     window.componentHandler.upgradeElement(this.root);
   }
@@ -28,15 +37,22 @@ class Layout extends React.Component {
     window.componentHandler.downgradeElements(this.root);
   }
 
+  handleMenuClick(method) {
+    this.refs.menu[method]();
+    this.setState({ menuVisible: method === 'open'});
+  }
+
   render() {
     return (
-      <div className="mdl-layout mdl-js-layout" ref={node => (this.root = node)}>
-        <div className="mdl-layout__inner-container">
-          <Header />
+      <div className="mdl-layout__container" ref={node => (this.root = node)}>
+        <div className="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header has-drawer is-upgraded is-small-screen">
+          <Header menuVisible={this.state.menuVisible} onMenuClick={this.handleMenuClick.bind(this, 'open')} />
+          <Menu ref="menu" />
           <main className="mdl-layout__content">
             <div {...this.props} className={cx(s.content, this.props.className)} />
             <Footer />
           </main>
+          <div className={`mdl-layout__obfuscator ${this.state.menuVisible ? 'is-visible' : ''}`} onClick={this.handleMenuClick.bind(this, 'close')}></div>
         </div>
       </div>
     );
