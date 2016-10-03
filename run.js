@@ -14,6 +14,8 @@ const fs = require('fs');
 const del = require('del');
 const ejs = require('ejs');
 const webpack = require('webpack');
+const path = require('path');
+const spawn = require('child_process').spawn;
 
 // TODO: Update configuration settings
 const config = {
@@ -111,7 +113,10 @@ tasks.set('publish', () => {
     };
     global.DEBUG = process.argv.includes('--debug') || false;
     const spawn = require('child_process').spawn;
-    const opts = { cwd: path.resolve(__dirname, './build'), stdio: ['ignore', 'inherit', 'inherit'] };
+    const opts = {
+      cwd: path.resolve(__dirname, './build'),
+      stdio: ['ignore', 'inherit', 'inherit']
+    };
     const git = (...args) => new Promise((resolve, reject) => {
       spawn('git', args, opts).on('close', code => {
         if (code === 0) {
@@ -141,7 +146,7 @@ tasks.set('publish', () => {
       .then(() => git('add', '.', '--all'))
       .then(() => git('commit', '--message', new Date().toUTCString())
         .catch(() => Promise.resolve()))
-      .then(() => git('push', 'origin', `HEAD:${remote.branch}`, '--force', '--set-upstream'));
+      //.then(() => git('push', 'origin', `HEAD:${remote.branch}`, '--force', '--set-upstream'));
 });
 
 //
