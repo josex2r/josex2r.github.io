@@ -8,20 +8,20 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
+import { connect } from 'react-redux';
 import React from 'react';
 import Link from '../Link';
+
+const mapStateToProps = (state, ownProps) => state.user;
 
 class Menu extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      visible: props.menuVisible || false
-    };
   }
 
   componentDidMount() {
+    console.log(this.state)
     window.componentHandler.upgradeElement(this.root);
   }
 
@@ -29,21 +29,13 @@ class Menu extends React.Component {
     window.componentHandler.downgradeElements(this.root);
   }
 
-  open() {
-    this.setState({ visible: true });
-  }
-
-  close() {
-    this.setState({ visible: false });
-  }
-
   render() {
     return (
-      <div className={`mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50 ${this.state.visible ? 'is-visible' : ''}`} ref={node => (this.root = node)}>
+      <div className={`mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50 ${this.props.visible ? 'is-visible' : ''}`} ref={node => (this.root = node)}>
          <header className="demo-drawer-header">
            <img src="images/user.jpg" className="demo-avatar" />
            <div className="demo-avatar-dropdown">
-             <span>hello@example.com</span>
+             <span>{this.props.email}</span>
              <div className="mdl-layout-spacer"></div>
              <button id="accbtn" className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
                <i className="material-icons" role="presentation">arrow_drop_down</i>
@@ -77,4 +69,9 @@ class Menu extends React.Component {
 
 }
 
-export default Menu;
+export default connect(
+  mapStateToProps,
+  null,
+  null,
+  { withRef: true }
+)(Menu);

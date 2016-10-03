@@ -37,22 +37,21 @@ class Layout extends React.Component {
     window.componentHandler.downgradeElements(this.root);
   }
 
-  handleMenuClick(method) {
-    this.refs.menu[method]();
-    this.setState({ menuVisible: method === 'open'});
+  handleMenuClick(menuVisible) {
+    this.setState({ menuVisible });
   }
 
   render() {
     return (
       <div className="mdl-layout__container" ref={node => (this.root = node)}>
         <div className="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header has-drawer is-upgraded is-small-screen">
-          <Header menuVisible={this.state.menuVisible} onMenuClick={this.handleMenuClick.bind(this, 'open')} />
-          <Menu ref="menu" />
+          <Header menuVisible={this.state.menuVisible} onMenuClick={this.handleMenuClick.bind(this, true)} />
+          <Menu visible={this.state.menuVisible} />
           <main className="mdl-layout__content">
             <div {...this.props} className={cx(s.content, this.props.className)} />
             <Footer />
           </main>
-          <div className={`mdl-layout__obfuscator ${this.state.menuVisible ? 'is-visible' : ''}`} onClick={this.handleMenuClick.bind(this, 'close')}></div>
+          <div className={`mdl-layout__obfuscator ${this.state.menuVisible ? 'is-visible' : ''}`} onClick={this.handleMenuClick.bind(this, false)}></div>
         </div>
       </div>
     );
