@@ -11,6 +11,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import Link from '../Link';
+import s from './Menu.css';
 
 const mapStateToProps = (state, ownProps) => state.user;
 
@@ -32,8 +33,8 @@ class Menu extends React.Component {
   render() {
     return (
       <div className={`mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50 ${this.props.visible ? 'is-visible' : ''}`} ref={node => (this.root = node)}>
-         <header className="demo-drawer-header">
-           <img src="images/user.jpg" className="demo-avatar" />
+         <header className={`demo-drawer-header ${s.menuHeader}`}>
+           <img src={this.props.image} className="demo-avatar" />
            <div className="demo-avatar-dropdown">
              <span>{this.props.email}</span>
              <div className="mdl-layout-spacer"></div>
@@ -48,7 +49,7 @@ class Menu extends React.Component {
              </ul>
            </div>
          </header>
-         <nav className="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+         <nav className={`demo-navigation mdl-navigation mdl-color--blue-grey-800 ${s.menuNav}`}>
            <Link className="mdl-navigation__link" to="/">
              <i className="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>
              Home
