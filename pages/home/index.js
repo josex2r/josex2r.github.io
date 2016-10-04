@@ -10,6 +10,7 @@
 
 import React, { PropTypes } from 'react';
 import Layout from '../../components/Layout';
+import Skill from '../../components/Skill';
 import s from './styles.css';
 import { title, html } from './index.md';
 
@@ -26,6 +27,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <Layout className={s.content}>
+        <Skill label="Git" icon="git" amount="3" />
         <div dangerouslySetInnerHTML={{ __html: html }} />
         <h4>Articles</h4>
         <ul>

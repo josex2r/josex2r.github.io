@@ -20,6 +20,26 @@
   margin: 0 auto;
 }
 
+.menuHeader div {
+  padding: 0px 15px;
+  padding-top: 5px;
+  text-align: right;
+}
+
+.menuHeader div a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menuHeader div i {
+  margin-left: 15px;
+}
+
 .menuNav {
   padding-top: 0px !important;
+}
+
+.menuNav a i {
+  margin-right: 10px;
+  font-size: 2em;
 }

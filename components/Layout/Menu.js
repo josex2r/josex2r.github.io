@@ -36,32 +36,27 @@ class Menu extends React.Component {
          <header className={`demo-drawer-header ${s.menuHeader}`}>
            <img src={this.props.image} className="demo-avatar" />
            <div className="demo-avatar-dropdown">
-             <span>{this.props.email}</span>
-             <div className="mdl-layout-spacer"></div>
-             <button id="accbtn" className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-               <i className="material-icons" role="presentation">arrow_drop_down</i>
-               <span className="visuallyhidden">Accounts</span>
-             </button>
-             <ul className="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect">
-               <li className="mdl-menu__item">hello@example.com</li>
-               <li className="mdl-menu__item">info@example.com</li>
-               <li className="mdl-menu__item"><i className="material-icons">add</i>Add another account...</li>
-             </ul>
+             <a href={`mailto:${this.props.email}`}>{this.props.email}</a>
+             <i className="fa fa-envelope" aria-hidden="true"></i>
+           </div>
+           <div className="demo-avatar-dropdown">
+             <a href="https://github.com/josex2r">{this.props.user}</a>
+             <i className="fa fa-github" aria-hidden="true"></i>
            </div>
          </header>
          <nav className={`demo-navigation mdl-navigation mdl-color--blue-grey-800 ${s.menuNav}`}>
            <Link className="mdl-navigation__link" to="/">
-             <i className="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>
-             Home
+             <i className="fa fa-user-plus mdl-color-text--blue-grey-400 material-icons" aria-hidden="true"></i>
+             Me
            </Link>
            <Link className="mdl-navigation__link" to="/about">
-             <i className="mdl-color-text--blue-grey-400 material-icons" role="presentation">info</i>
-             About
+             <i className="fa fa-cube mdl-color-text--blue-grey-400 material-icons" aria-hidden="true"></i>
+             Projects
            </Link>
            <div className="mdl-layout-spacer"></div>
            <Link className="mdl-navigation__link" to="/about">
-             <i className="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i>
-             Help
+             <i className="fa fa-gears mdl-color-text--blue-grey-400 material-icons" aria-hidden="true"></i>
+             Github stuff
            </Link>
          </nav>
        </div>
