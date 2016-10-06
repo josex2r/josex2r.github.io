@@ -21,7 +21,7 @@ class AboutPage extends React.Component {
 
   render() {
     return (
-      <Layout className={s.content}>
+      <Layout className={s.content} path={this.props.route.path}>
         <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </Layout>

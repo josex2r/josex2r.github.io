@@ -26,7 +26,7 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <Layout className={s.content}>
+      <Layout className={s.content} path={this.props.route.path}>
         <div className="row">
           <Skill label="Git" icon="git" progress="1" />
           <Skill label="Git" icon="git" progress="2" />

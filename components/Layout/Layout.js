@@ -46,7 +46,7 @@ class Layout extends React.Component {
       <div className="mdl-layout__container" ref={node => (this.root = node)}>
         <div className="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header has-drawer is-upgraded is-small-screen">
           <Header menuVisible={this.state.menuVisible} onMenuClick={this.handleMenuClick.bind(this, true)} />
-          <Menu visible={this.state.menuVisible} />
+          <Menu visible={this.state.menuVisible} path={this.props.path} />
           <main className="mdl-layout__content">
             <div {...this.props} className={cx(s.content, this.props.className)} />
             <Footer />

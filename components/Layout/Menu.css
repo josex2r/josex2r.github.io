@@ -17,7 +17,11 @@
   text-decoration: none;
 }
 
-.menu a:hover i, .menu a.active i {
+.menu a:hover i {
+  color: #fff !important;
+}
+
+.active i {
   color: #fff !important;
 }
 
@@ -52,7 +56,12 @@
 .menuNav {
   background-color: transparent !important;
   padding-top: 0px !important;
-  margin-top: 25px;
+  margin-top: 15px;
+}
+
+.separator {
+  margin: 10px 30px;
+  border: 1px inset #78909c;
 }
 
 .menuNav a {

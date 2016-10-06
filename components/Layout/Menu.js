@@ -30,6 +30,10 @@ class Menu extends React.Component {
     window.componentHandler.downgradeElements(this.root);
   }
 
+  isActive(path) {
+    return this.props.path === path ? s.active : '';
+  }
+
   render() {
     return (
       <div className={`mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50 ${this.props.visible ? 'is-visible' : ''} ${s.menu}`} ref={node => (this.root = node)}>
@@ -38,33 +42,32 @@ class Menu extends React.Component {
          </header>
 
          <nav className={`demo-navigation mdl-navigation mdl-color--blue-grey-800 ${s.menuNav}`}>
-           <Link className="mdl-navigation__link" to="/">
+           <div className={s.separator} />
+
+           <Link className={`mdl-navigation__link ${this.isActive('/')}`} to="/">
              <i className="fa fa-dollar mdl-color-text--blue-grey-400" aria-hidden="true">_</i>
              <span>Me</span>
            </Link>
-           <Link className="mdl-navigation__link" to="/about">
+           <Link className={`mdl-navigation__link ${this.isActive('/about')}`} to="/about">
              <i className="fa fa-dollar mdl-color-text--blue-grey-400" aria-hidden="true">_</i>
              <span>Projects</span>
            </Link>
-           <Link className="mdl-navigation__link" to="/about">
+           <Link className={`mdl-navigation__link ${this.isActive('/about')}`} to="/about">
              <i className="fa fa-dollar mdl-color-text--blue-grey-400" aria-hidden="true">_</i>
              <span>Github stuff</span>
            </Link>
 
-           <div className="mdl-layout-spacer"></div>
-           <div className="mdl-layout-spacer"></div>
-           <div className="mdl-layout-spacer"></div>
-           <div className="mdl-layout-spacer"></div>
+           <div className={s.separator} />
 
            <div className={s.spacer}>
              <div className={s.inline}>
-               <a className="mdl-navigation__link" href={this.props.url}>
+               <a className="mdl-navigation__link" href={this.props.url} target="_blank">
                   <i className="fa fa-github mdl-color-text--blue-grey-400" aria-hidden="true"></i>
                </a>
-               <a className="mdl-navigation__link" href="https://www.linkedin.com/in/josex2r">
+               <a className="mdl-navigation__link" href="https://www.linkedin.com/in/josex2r" target="_blank">
                   <i className="fa fa-linkedin mdl-color-text--blue-grey-400" aria-hidden="true"></i>
                </a>
-               <a className="mdl-navigation__link" href={`mailto:${this.props.email}`}>
+               <a className="mdl-navigation__link" href={`mailto:${this.props.email}`} target="_blank">
                   <i className="fa fa-envelope mdl-color-text--blue-grey-400" aria-hidden="true"></i>
                </a>
              </div>
