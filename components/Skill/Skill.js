@@ -10,16 +10,19 @@
 
 import React, { PropTypes } from 'react';
 import s from './Skill.css';
-import Button from '../../components/Button';
 
 class Layout extends React.Component {
   render() {
+    const progressClass = `progress${this.props.progress}`;
+
     return (
-      <div className="" ref={node => (this.root = node)}>
-        <Button primary={true} type="icon" colored={true} accent={true} ripple={true}>
+      <div className={`col-xs-12 col-md-6 ${s.padding}`} ref={node => (this.root = node)}>
+        <div className={s.skillButton}>
           <i className={`fa fa-${this.props.icon}`} aria-hidden="true"></i>
-        </Button>
-        <span>{this.props.label}</span>
+        </div>
+        <div className={`progress ${s.progress}`}>
+          <div className={`progress-bar ${s.percent} ${s[progressClass]}`} role="progressbar" aria-valuenow={this.props.progress} aria-valuemin="0" aria-valuemax="5"></div>
+        </div>
       </div>
     );
   }

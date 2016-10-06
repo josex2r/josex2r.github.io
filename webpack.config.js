@@ -35,6 +35,7 @@ const config = {
     /* Material Design Lite (https://getmdl.io) */
     '!!style!css!react-mdl/extra/material.min.css',
     'react-mdl/extra/material.min.js',
+    '!!style!css!bootstrap/dist/css/bootstrap.min.css',
     /* The main entry point of your JavaScript application */
     './main.js',
   ],
@@ -148,6 +149,10 @@ const config = {
       {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader'
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url?limit=10000&mimetype=image/svg+xml'
       }
     ],
   },

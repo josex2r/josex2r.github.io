@@ -8,6 +8,19 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
+.menu {
+  border-right: 1px solid #999 !important;
+}
+
+.menu a:hover {
+  background-color: transparent !important;
+  text-decoration: none;
+}
+
+.menu a:hover i, .menu a.active i {
+  color: #fff !important;
+}
+
 .menuHeader {
   align-items: center;
   padding: 15px 0px;
@@ -18,6 +31,7 @@
   border-radius: 50%;
   display: block;
   margin: 0 auto;
+  border: 3px inset #78909c;
 }
 
 .menuHeader div {
@@ -36,10 +50,45 @@
 }
 
 .menuNav {
+  background-color: transparent !important;
   padding-top: 0px !important;
+  margin-top: 25px;
+}
+
+.menuNav a {
+  color: #fff;
+  padding: 5px 30px !important;
 }
 
 .menuNav a i {
   margin-right: 10px;
-  font-size: 2em;
+  font-size: 1em;
+}
+
+.menuNav a span {
+  color: #fff;
+}
+
+.spacer {
+  width: 100%;
+  color: #fff;
+  position: absolute;
+  bottom: 10px;
+}
+
+.spacer a {
+  padding: 0px 30px !important;
+}
+
+.inline {
+  padding: 0 !important;
+  text-align: center;
+  display: flex !important;
+  flex-direction: row;
+}
+
+.inline a {
+  flex: 1;
+  padding: 5px !important;
+  font-size: 1.5em;
 }

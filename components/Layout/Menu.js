@@ -32,32 +32,43 @@ class Menu extends React.Component {
 
   render() {
     return (
-      <div className={`mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50 ${this.props.visible ? 'is-visible' : ''}`} ref={node => (this.root = node)}>
+      <div className={`mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50 ${this.props.visible ? 'is-visible' : ''} ${s.menu}`} ref={node => (this.root = node)}>
          <header className={`demo-drawer-header ${s.menuHeader}`}>
            <img src={this.props.image} className="demo-avatar" />
-           <div className="demo-avatar-dropdown">
-             <a href={`mailto:${this.props.email}`}>{this.props.email}</a>
-             <i className="fa fa-envelope" aria-hidden="true"></i>
-           </div>
-           <div className="demo-avatar-dropdown">
-             <a href="https://github.com/josex2r">{this.props.user}</a>
-             <i className="fa fa-github" aria-hidden="true"></i>
-           </div>
          </header>
+
          <nav className={`demo-navigation mdl-navigation mdl-color--blue-grey-800 ${s.menuNav}`}>
            <Link className="mdl-navigation__link" to="/">
-             <i className="fa fa-user-plus mdl-color-text--blue-grey-400 material-icons" aria-hidden="true"></i>
-             Me
+             <i className="fa fa-dollar mdl-color-text--blue-grey-400" aria-hidden="true">_</i>
+             <span>Me</span>
            </Link>
            <Link className="mdl-navigation__link" to="/about">
-             <i className="fa fa-cube mdl-color-text--blue-grey-400 material-icons" aria-hidden="true"></i>
-             Projects
+             <i className="fa fa-dollar mdl-color-text--blue-grey-400" aria-hidden="true">_</i>
+             <span>Projects</span>
            </Link>
+           <Link className="mdl-navigation__link" to="/about">
+             <i className="fa fa-dollar mdl-color-text--blue-grey-400" aria-hidden="true">_</i>
+             <span>Github stuff</span>
+           </Link>
+
            <div className="mdl-layout-spacer"></div>
-           <Link className="mdl-navigation__link" to="/about">
-             <i className="fa fa-gears mdl-color-text--blue-grey-400 material-icons" aria-hidden="true"></i>
-             Github stuff
-           </Link>
+           <div className="mdl-layout-spacer"></div>
+           <div className="mdl-layout-spacer"></div>
+           <div className="mdl-layout-spacer"></div>
+
+           <div className={s.spacer}>
+             <div className={s.inline}>
+               <a className="mdl-navigation__link" href={this.props.url}>
+                  <i className="fa fa-github mdl-color-text--blue-grey-400" aria-hidden="true"></i>
+               </a>
+               <a className="mdl-navigation__link" href="https://www.linkedin.com/in/josex2r">
+                  <i className="fa fa-linkedin mdl-color-text--blue-grey-400" aria-hidden="true"></i>
+               </a>
+               <a className="mdl-navigation__link" href={`mailto:${this.props.email}`}>
+                  <i className="fa fa-envelope mdl-color-text--blue-grey-400" aria-hidden="true"></i>
+               </a>
+             </div>
+           </div>
          </nav>
        </div>
     );

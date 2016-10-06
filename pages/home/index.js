@@ -27,7 +27,12 @@ class HomePage extends React.Component {
   render() {
     return (
       <Layout className={s.content}>
-        <Skill label="Git" icon="git" amount="3" />
+        <div className="row">
+          <Skill label="Git" icon="git" progress="1" />
+          <Skill label="Git" icon="git" progress="2" />
+          <Skill label="Git" icon="git" progress="3" />
+          <Skill label="Git" icon="git" progress="4" />
+        </div>
         <div dangerouslySetInnerHTML={{ __html: html }} />
         <h4>Articles</h4>
         <ul>

@@ -15,7 +15,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import FastClick from 'fastclick';
 import { Provider } from 'react-redux';
-import fontAwesome from 'font-awesome-webpack';
+import FontAwesome from 'font-awesome-webpack';
 
 import store from './core/store';
 import router from './core/router';
